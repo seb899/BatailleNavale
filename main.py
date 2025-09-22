@@ -25,14 +25,14 @@ def place_ship(board):
             row = random.randint(0, BOARD_SIZE - 1)
             col = random.randint(0, BOARD_SIZE - SHIP_SIZE)
             for i in range(SHIP_SIZE):
-                if all(board[row][col+i] == WATER for i in range(SHIP_SIZE)):
-                    for i in range(SHIP_SIZE):
                 board[row][col+i] = SHIP
             placed = True
         else:
-            pass
-
-
+            row = random.randint(0, BOARD_SIZE - SHIP_SIZE)
+            col = random.randint(0, BOARD_SIZE - 1)
+            for i in range(SHIP_SIZE):
+                board[row+i][col] = SHIP
+            placed = True
 
 def main():
     board = make_board()
