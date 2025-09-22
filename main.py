@@ -41,16 +41,22 @@ def take_shot(board, hidden, row, col):
         board[row][col] = HIT
     else:
         hidden[row][col] = MISS
-        
+
 def main():
     board = make_board()
     for _ in range(3):
         place_ship(board)
+
     hidden_board = make_board()
+
     print("=== Bataille Navale ===")
-    print("Grille visible (vide):")
+    print("Grille avant tir :")
     print_board(hidden_board)
-    print("\nGrille avec bateaux (debug):")
-    print_board(board)
+
+    # Tir de test en A1 (0,0)
+    take_shot(board, hidden_board, 0, 0)
+
+    print("\nAprès un tir en A1 :")
+    print_board(hidden_board)
 if __name__ == "__main__":
     main()
