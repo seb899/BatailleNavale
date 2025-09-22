@@ -30,14 +30,15 @@ def place_ship(board):
         else:
             row = random.randint(0, BOARD_SIZE - SHIP_SIZE)
             col = random.randint(0, BOARD_SIZE - 1)
-             if all(board[row+i][col] == WATER for i in range(SHIP_SIZE)):
-            for i in range(SHIP_SIZE):
-                board[row+i][col] = SHIP
-            placed = True
+            if all(board[row+i][col] == WATER for i in range(SHIP_SIZE)):
+                for i in range(SHIP_SIZE):
+                    board[row+i][col] = SHIP
+                placed = True
 
 def main():
     board = make_board()
-    place_ship(board)
+    for _ in range(3):
+        place_ship(board)
     print("=== Bataille Navale ===")
     print_board(board)
 
