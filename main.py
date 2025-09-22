@@ -1,4 +1,4 @@
-from string import asci_uppercase
+from string import ascii_uppercase
 
 BOARD_SIZE = 5
 WATER = "~"
