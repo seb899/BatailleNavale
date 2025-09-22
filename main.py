@@ -39,8 +39,11 @@ def main():
     board = make_board()
     for _ in range(3):
         place_ship(board)
+    hidden_board = make_board()
     print("=== Bataille Navale ===")
+    print("Grille visible (vide):")
+    print_board(hidden_board)
+    print("\nGrille avec bateaux (debug):")
     print_board(board)
-
 if __name__ == "__main__":
     main()
