@@ -2,6 +2,10 @@ from string import ascii_uppercase
 
 BOARD_SIZE = 5
 WATER = "~"
+SHIP_SIZE = 3
+SHIP = "S"
+HIT = "X"
+MISS = "o"
 
 def make_board():
     return [[WATER for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
