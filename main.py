@@ -1,5 +1,5 @@
 from string import ascii_uppercase
-
+import random
 BOARD_SIZE = 5
 WATER = "~"
 SHIP_SIZE = 3
@@ -21,10 +21,20 @@ def place_ship(board):
     direction = random.choice(["H", "V"])
     placed = False
     while not placed:
-        pass
+        if direction == "H":
+            row = random.randint(0, BOARD_SIZE - 1)
+            col = random.randint(0, BOARD_SIZE - SHIP_SIZE)
+            for i in range(SHIP_SIZE):
+                board[row][col+i] = SHIP
+            placed = True
+        else:
+            pass
+
+
 
 def main():
     board = make_board()
+    place_ship(board)
     print("=== Bataille Navale ===")
     print_board(board)
 
