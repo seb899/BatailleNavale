@@ -35,6 +35,13 @@ def place_ship(board):
                     board[row+i][col] = SHIP
                 placed = True
 
+def take_shot(board, hidden, row, col):
+    if board[row][col] == SHIP:
+        hidden[row][col] = HIT
+        board[row][col] = HIT
+    else:
+        hidden[row][col] = MISS
+        
 def main():
     board = make_board()
     for _ in range(3):
