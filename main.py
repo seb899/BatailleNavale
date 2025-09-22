@@ -17,6 +17,12 @@ def print_board(board):
         row = " ".join(board[i])
         print(f"{row_label}  {row}")
 
+def place_ship(board):
+    direction = random.choice(["H", "V"])
+    placed = False
+    while not placed:
+        pass
+
 def main():
     board = make_board()
     print("=== Bataille Navale ===")
