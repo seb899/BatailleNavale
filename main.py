@@ -39,8 +39,10 @@ def take_shot(board, hidden, row, col):
     if board[row][col] == SHIP:
         hidden[row][col] = HIT
         board[row][col] = HIT
+        print("Touché !")
     else:
         hidden[row][col] = MISS
+        print("À l'eau...")
 
 def parse_input(move):
     row = ascii_uppercase.index(move[0].upper())
