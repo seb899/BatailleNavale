@@ -54,13 +54,20 @@ def parse_input(move):
     col = int(move[1]) - 1
     return row, col
 
+    def all_ships_sunk(board):
+    for row in board:
+        if SHIP in row:
+            return False
+    return True
+
+
 def main():
     board = make_board()
     for _ in range(3):
         place_ship(board)
 
     hidden_board = make_board()
-    shots = 0  
+    shots = 0
 
     print("=== Bataille Navale ===")
 
@@ -74,8 +81,12 @@ def main():
 
         row, col = parse_input(move)
         take_shot(board, hidden_board, row, col)
+        shots += 1
 
-        shots += 1   
+        if all_ships_sunk(board):
+            print(f"Bravo, tu as coulé tous les bateaux en {shots} tirs ! 🎉")
+            break
+
 
     print("\nAprès votre tir :")
     print_board(hidden_board)
