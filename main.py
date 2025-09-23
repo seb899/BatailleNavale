@@ -37,8 +37,8 @@ def place_ship(board):
 
 def take_shot(board, hidden, row, col):
     if hidden[row][col] != WATER:
-        print("Tu as déjà tiré ici !")
-        return
+        print(" Tu as déjà tiré ici, choisis une autre case.")
+        return False
 
     if board[row][col] == SHIP:
         hidden[row][col] = HIT
@@ -49,6 +49,7 @@ def take_shot(board, hidden, row, col):
         print("À l'eau...")
 
 
+    return True
 def parse_input(move):
     row = ascii_uppercase.index(move[0].upper())
     col = int(move[1]) - 1
