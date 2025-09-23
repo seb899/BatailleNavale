@@ -54,11 +54,12 @@ def parse_input(move):
     col = int(move[1]) - 1
     return row, col
 
-    def all_ships_sunk(board):
+def all_ships_sunk(board):
     for row in board:
         if SHIP in row:
             return False
     return True
+    
 
 
 def main():
@@ -68,12 +69,13 @@ def main():
 
     hidden_board = make_board()
     shots = 0
+    max_shots = 15   
 
     print("=== Bataille Navale ===")
 
     while True:
         print_board(hidden_board)
-        move = input("Entrez une case (ex: A1, ou q pour quitter): ")
+        move = input(f"Entrez une case (ex: A1, ou q pour quitter) [{shots}/{max_shots}]: ")
 
         if move.lower() == "q":
             print(f"Partie terminée après {shots} tirs.")
@@ -84,8 +86,13 @@ def main():
         shots += 1
 
         if all_ships_sunk(board):
-            print(f"Bravo, tu as coulé tous les bateaux en {shots} tirs ! 🎉")
+            print(f"Bravo, tu as coulé tous les bateaux en {shots} tirs ! ")
             break
+
+        if shots >= max_shots:
+            print(" Tu as utilisé tous tes tirs... Partie perdue !")
+            break
+
 
 
     print("\nAprès votre tir :")
