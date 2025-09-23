@@ -42,6 +42,11 @@ def take_shot(board, hidden, row, col):
     else:
         hidden[row][col] = MISS
 
+def parse_input(move):
+    row = ascii_uppercase.index(move[0].upper())
+    col = int(move[1]) - 1
+    return row, col
+
 def main():
     board = make_board()
     for _ in range(3):
@@ -53,7 +58,7 @@ def main():
     print("Grille avant tir :")
     print_board(hidden_board)
 
-    # Tir de test en A1 (0,0)
+   
     take_shot(board, hidden_board, 0, 0)
 
     print("\nAprès un tir en A1 :")
