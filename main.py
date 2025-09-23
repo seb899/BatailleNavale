@@ -57,12 +57,17 @@ def main():
     hidden_board = make_board()
 
     print("=== Bataille Navale ===")
-    print("Grille avant tir :")
-    print_board(hidden_board)
 
-    move = input("Entrez une case (ex: A1): ")
-    row, col = parse_input(move)
-    take_shot(board, hidden_board, row, col)
+    while True:
+        print_board(hidden_board)
+        move = input("Entrez une case (ex: A1, ou q pour quitter): ")
+
+        if move.lower() == "q":
+            print("Partie terminée.")
+            break
+
+        row, col = parse_input(move)
+        take_shot(board, hidden_board, row, col)
 
     print("\nAprès votre tir :")
     print_board(hidden_board)
