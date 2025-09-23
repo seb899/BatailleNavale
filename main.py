@@ -60,11 +60,7 @@ def all_ships_sunk(board):
         if SHIP in row:
             return False
     return True
-def has_won(board):
-    for row in board:
-        if SHIP in row:
-            return False
-    return True
+
 
     
 def main():
