@@ -60,9 +60,13 @@ def all_ships_sunk(board):
         if SHIP in row:
             return False
     return True
+def has_won(board):
+    for row in board:
+        if SHIP in row:
+            return False
+    return True
+
     
-
-
 def main():
     board = make_board()
     for _ in range(3):
@@ -83,20 +87,18 @@ def main():
             break
 
         row, col = parse_input(move)
-        take_shot(board, hidden_board, row, col)
-        shots += 1
 
-        if all_ships_sunk(board):
-            print(f"Bravo, tu as coulé tous les bateaux en {shots} tirs ! ")
-            break
+        if take_shot(board, hidden_board, row, col):
+            shots += 1
 
-        if shots >= max_shots:
-            print(" Tu as utilisé tous tes tirs... Partie perdue !")
-            break
+            if all_ships_sunk(board):
+                print_board(hidden_board)
+                print(f" Bravo, tu as coulé tous les bateaux en {shots} tirs !")
+                break
 
+            if shots >= max_shots:
+                print(" Tu as utilisé tous tes tirs... Partie perdue !")
+                break
 
-
-    print("\nAprès votre tir :")
-    print_board(hidden_board)
 if __name__ == "__main__":
     main()
