@@ -58,10 +58,11 @@ def main():
     print("Grille avant tir :")
     print_board(hidden_board)
 
-   
-    take_shot(board, hidden_board, 0, 0)
+    move = input("Entrez une case (ex: A1): ")
+    row, col = parse_input(move)
+    take_shot(board, hidden_board, row, col)
 
-    print("\nAprès un tir en A1 :")
+    print("\nAprès votre tir :")
     print_board(hidden_board)
 if __name__ == "__main__":
     main()
