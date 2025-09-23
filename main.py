@@ -60,6 +60,7 @@ def main():
         place_ship(board)
 
     hidden_board = make_board()
+    shots = 0  
 
     print("=== Bataille Navale ===")
 
@@ -68,11 +69,13 @@ def main():
         move = input("Entrez une case (ex: A1, ou q pour quitter): ")
 
         if move.lower() == "q":
-            print("Partie terminée.")
+            print(f"Partie terminée après {shots} tirs.")
             break
 
         row, col = parse_input(move)
         take_shot(board, hidden_board, row, col)
+
+        shots += 1   
 
     print("\nAprès votre tir :")
     print_board(hidden_board)
